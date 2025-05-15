@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      #loading {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: sans-serif;
+        z-index: 999;
+      }
+
+      #loading h1 {
+        font-size: 2em;
+        margin-bottom: 0.5em;
+      }
+
+      #loading p {
+        font-size: 1.2em;
+        opacity: 0.8;
+      }
+    </style>
+    <script src="aframe.min.js"></script>
+    <script src="mindar-image-aframe.prod.js"></script>    
+  </head>
+  <body>
+    <!-- LOADING SCREEN -->
+    <div id="loading">
+      <h1>AR Nusantara 2</h1>
+      <p>Loading AR experience...</p>
+    </div>
+
+    <a-scene
+      mindar-image="imageTargetSrc: targets.mind;"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: true"
+    >
+      <a-assets>
+        <a-asset-item id="1" src="1.glb"></a-asset-item>
+        <a-asset-item id="2" src="2.glb"></a-asset-item>
+        <a-asset-item id="3" src="3.glb"></a-asset-item>
+        <a-asset-item id="4" src="4.glb"></a-asset-item>
+        <a-asset-item id="5" src="5.glb"></a-asset-item>
+        <a-asset-item id="6" src="6.glb"></a-asset-item>
+        <a-asset-item id="7" src="7.glb"></a-asset-item>
+        <a-asset-item id="8" src="8.glb"></a-asset-item>
+        <a-asset-item id="9" src="9.glb"></a-asset-item>
+        <a-asset-item id="10" src="10.glb"></a-asset-item>
+        <!-- <a-asset-item id="11" src="11.glb"></a-asset-item> -->
+        <a-asset-item id="11" src="tungtung.glb"></a-asset-item>
+
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+<!-- Target 1 -->
+<a-entity mindar-image-target="targetIndex: 0" id="marker1">
+  <a-entity gltf-model="#1" scale="1.5 1.5 1.5" position="0 -0.2 0"></a-entity>
+</a-entity>
+
+<!-- Target 2 -->
+<a-entity mindar-image-target="targetIndex: 1" id="marker2">
+  <a-entity gltf-model="#2" scale="0.2 0.2 0.2" position="0 2.0 0"></a-entity>
+</a-entity>
+
+<!-- Target 3 -->
+<a-entity mindar-image-target="targetIndex: 2" id="marker3">
+  <a-entity gltf-model="#3" scale="0.05 0.05 0.05" position="0 -0.2 0"></a-entity>
+</a-entity>
+
+<!-- Target 4 (tidak disebutkan, tetap) -->
+<a-entity mindar-image-target="targetIndex: 3" id="marker4">
+  <a-entity gltf-model="#4" scale="0.8 0.8 0.8" position="0 -0.5 0"></a-entity>
+</a-entity>
+
+<!-- Target 5 -->
+<a-entity mindar-image-target="targetIndex: 4" id="marker5">
+  <a-entity gltf-model="#5" scale="20.0 20.0 20.0" position="0 -0.2 0"></a-entity>
+</a-entity>
+
+<!-- Target 6 -->
+<a-entity mindar-image-target="targetIndex: 5" id="marker6">
+  <a-entity gltf-model="#6" scale="30.0 30.0 30.0" position="0 -0.9 0"></a-entity>
+</a-entity>
+
+<!-- Target 7 -->
+<a-entity mindar-image-target="targetIndex: 6" id="marker7">
+  <a-entity gltf-model="#7" scale="30.0 30.0 30.0" position="0 -0.9 0"></a-entity>
+</a-entity>
+<!-- Target 8 -->
+<a-entity mindar-image-target="targetIndex: 7" id="marker8">
+  <a-entity gltf-model="#8" scale="0.06 0.06 0.06" position="0 -0.2 0"></a-entity>
+</a-entity>
+<!-- Target 9 -->
+<a-entity mindar-image-target="targetIndex: 8" id="marker9">
+  <a-entity gltf-model="#9" scale="0.06 0.06 0.06" position="0 -0.2 0"></a-entity>
+</a-entity>
+<!-- Target 10 -->
+<a-entity mindar-image-target="targetIndex: 9" id="marker10">
+  <a-entity gltf-model="#10" scale="0.6 0.6 0.6" position="0 -0.2 0"></a-entity>
+</a-entity>
+<!-- Target 11 -->
+<a-entity mindar-image-target="targetIndex: 10" id="marker11">
+  <a-entity gltf-model="#11" scale="0.30 0.30 0.30" position="0 -0.8 0.2"></a-entity>
+</a-entity>
+<!-- <a-entity mindar-image-target="targetIndex: 10">
+  <a-entity 
+    gltf-model="#11" 
+    animation-mixer="clip: Dance; loop: repeat" 
+    scale="0.5 0.5 0.5" 
+    position="0 -2.0 0">
+  </a-entity>
+</a-entity> -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const loading = document.getElementById("loading");
+        const scene = document.querySelector("a-scene");
+ 
+        scene.addEventListener("loaded", () => {
+          loading.style.display = "none";
+        });
+      });
+    </script>
+  </body>
+</html>
